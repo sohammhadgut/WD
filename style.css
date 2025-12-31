@@ -1,0 +1,232 @@
+/* style.css
+   Enhanced visual styling for the GST Billing website.
+   Replace your existing style.css with this file.
+*/
+
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6c757d;
+  --primary: #0d6efd;
+  --accent: linear-gradient(90deg,#6a11cb,#2575fc);
+  --glass: rgba(255,255,255,0.6);
+  --shadow-sm: 0 2px 6px rgba(16,24,40,0.06);
+  --shadow-md: 0 8px 20px rgba(16,24,40,0.08);
+  --success: #198754;
+  --danger: #dc3545;
+  --radius: 10px;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #eef3fb 0%, var(--bg) 100%);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Header */
+.site-header{
+  margin: 1.25rem auto;
+  text-align: center;
+}
+.site-header h2{
+  margin:0;
+  font-weight:700;
+  letter-spacing:0.2px;
+  background: var(--accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:1.6rem;
+}
+.site-header p.lead{
+  margin:0.35rem 0 0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* Nav */
+.navbar{
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 0.4rem 0.6rem;
+  margin: 0 1rem;
+  box-shadow: var(--shadow-sm);
+}
+.nav{
+  gap:0.5rem;
+  flex-wrap:wrap;
+}
+.nav-link{
+  color: #495057;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: all .18s ease;
+  font-weight:500;
+}
+.nav-link:hover{
+  background: rgba(13,110,253,0.06);
+  transform: translateY(-1px);
+}
+.nav-link.active{
+  color: white !important;
+  background: var(--primary);
+  box-shadow: 0 4px 12px rgba(13,110,253,0.18);
+}
+
+/* Card appearance */
+.card{
+  background: var(--card);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+/* Gradient card for hero section */
+.gradient-card{
+  background: radial-gradient(1000px 200px at 10% 10%, rgba(101,81,255,0.08), transparent),
+              linear-gradient(135deg,#fff 0%, #fbfdff 100%);
+  border-radius: 14px;
+}
+
+/* Buttons */
+.btn{
+  border-radius: 10px;
+  padding: 0.48rem 0.85rem;
+  font-weight:600;
+}
+.btn-outline-primary{
+  border: 1px solid rgba(13,110,253,0.15);
+  color: var(--primary);
+  background: linear-gradient(180deg, rgba(13,110,253,0.04), transparent);
+}
+.btn-primary{
+  background: var(--primary);
+  border: none;
+  color: white;
+  box-shadow: 0 6px 18px rgba(13,110,253,0.14);
+}
+.btn-success{ background: var(--success); color:#fff; border:none; }
+.btn-warning{ background:#ffc107; color:#222; border:none; }
+
+/* Lists */
+.list-group-item{
+  border:none;
+  padding:0.6rem 0.9rem;
+  border-radius: 8px;
+}
+
+/* Tables */
+.table{
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.table thead th{
+  background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(13,110,253,0.02));
+  border-bottom: none;
+  color: #0b5ed7;
+  font-weight:600;
+}
+.table tbody tr{
+  background: linear-gradient(90deg, rgba(0,0,0,0.02), transparent);
+}
+.table td, .table th{
+  vertical-align: middle;
+  border-top: none;
+  padding: 0.65rem;
+}
+
+/* Totals card */
+.card .text-end{
+  font-size:0.95rem;
+}
+.card .text-end h5{
+  margin:0.4rem 0 0;
+  font-weight:700;
+  font-size:1.05rem;
+}
+
+/* Inputs */
+.form-control, .form-select{
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid #e6eefb;
+}
+.form-control:focus, .form-select:focus{
+  border-color: rgba(13,110,253,0.5);
+  box-shadow: 0 6px 18px rgba(13,110,253,0.06);
+}
+
+/* Invoice item row specifics */
+.item-name{ width:100%; }
+.item-select{ width:100%; }
+.amt,.cgst,.sgst,.total{
+  font-weight:600;
+  color:#111;
+}
+
+/* Recent invoices */
+#recentInvoices td{
+  font-size:0.95rem;
+}
+
+/* Footer */
+.site-footer{
+  text-align:center;
+  color:var(--muted);
+  padding: 1.2rem 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px){
+  .nav { justify-content:center; }
+  .site-header h2{ font-size:1.25rem; }
+  .card{ margin-bottom: 0.8rem; }
+}
+
+/* Small helper classes */
+.kicker{
+  font-size:0.85rem;
+  color:var(--muted);
+  letter-spacing:0.2px;
+}
+
+/* subtle accent for headings in cards */
+.card h4, .card h5, .card h3{
+  color: #0b5ed7;
+  margin-bottom:0.6rem;
+}
+
+/* Danger / Reset button at footer */
+.btn-danger{
+  background: var(--danger);
+  border:none;
+}
+
+/* Small visual polish for preview window tables if injected */
+.preview-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:0.6rem;
+}
+.preview-table th, .preview-table td{
+  border:1px solid #ddd;
+  padding:8px;
+  text-align:left;
+}
+
+/* Tiny animations */
+@keyframes floatUp {
+  from { transform: translateY(6px); opacity:0; }
+  to { transform: translateY(0); opacity:1; }
+}
+.card{ animation: floatUp .28s ease both; }
